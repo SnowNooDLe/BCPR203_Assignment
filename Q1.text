@@ -27,7 +27,7 @@ Will have attributes of
 
 Second Enity
 Branch
-will have attributes of 
+will have attributes of
 1. Primary key, branchID
 
 Third Entity
@@ -42,4 +42,3 @@ Fourth Entity.
 Staff
 will have attributes of
 1. primary key, Staff ID
-2.
