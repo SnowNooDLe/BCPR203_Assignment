@@ -1,0 +1,45 @@
+potential attributes from excel file.
+1. ID Number
+2. First name
+3. Last Name
+4. Course
+5. PROG (course code)
+6. Start date
+7. End date
+8. Numbero f days attended (Number of sessions attended)
+9. number of days (Numbero f sessions in course)
+10. Withdrawal point
+11. Last Withdrawal date
+12. Attended past last witdrawal date ?
+13. Date Last Attended
+14. Last Active Moodle
+15. Future Bookings
+16. Weeks Left
+17. completed
+18. Notes
+
+We have been shown the possibility of using RFID tags to allow students to "attend"
+
+First Entity
+Course
+Will have attributes of
+1. Primary Key, courseID
+
+Second Enity
+Branch
+will have attributes of 
+1. Primary key, branchID
+
+Third Entity
+Student
+will have attributes of
+1. Primary key, student ID
+2. number of attandance. in days/weeks
+3. has attended their final class (true or false)
+4(not sur). percentage of attandance.
+
+Fourth Entity.
+Staff
+will have attributes of
+1. primary key, Staff ID
+2.
