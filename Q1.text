@@ -18,7 +18,8 @@ potential attributes from excel file.
 17. completed
 18. Notes
 
-We have been shown the possibility of using RFID tags to allow students to "attend"
+We have been shown the possibility of using RFID tags to allow students to
+"attend"
 
 First Entity
 Course
@@ -42,3 +43,36 @@ Fourth Entity.
 Staff
 will have attributes of
 1. primary key, Staff ID
+
+Assumptions / Business Rules
+
+1. Students should be attending a minimum of two sessions per week but they
+can attend as often as they can
+-> Stuents -> sessions 2 or more per week
+
+2. Students cannot attend more than the allocated number of classes - unless
+by arrangement with the Team Leader.
+Provision needs to be made for Team Leaders to over-ride the maximum number of
+allocated sessions.
+
+3. Students need to complete their course within the allocated number of Weeks
+-unless by arrangement with the Team Leaders
+Same condition with 2, provision required.
+
+4. Students can attend more than one branch
+-> so its not 1 to 1 relationships.
+
+5. Each class is two hours long and starts on the hour,
+
+6. Students can attend more than one session on one day.
+-> 0~many sessions on one day
+
+7. Students do turn up early to classes.
+Anyone attending 10 minutes before a class needs to be counted in the next class.
+eg. 9:52am -> attending for 10am ~ 12pm lecture.
+
+8. CFF students currently dont have Ara ID cards. In the ideal case they would be
+able to use their ID card. In the short term, they may need to be provided with an
+RFIT tag/card that does not have their student ID number as the code number of the
+card
+-> So we dont recognise student with their ID, we use card ID and allocate to students
