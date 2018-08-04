@@ -1,0 +1,21 @@
+1. Can a student be enrolled in many courses at one time ?
+-> Students can be enrolled in more than one courses
+-> 1< relationships
+-> BUT THEY ONLY DO ONE COURSE AT A TIME (IMPORTANT)
+-> Even though they enrolled ITTL300, ITTL310, ITTL320...
+-> They do 300 first then 310 then 320... so on.
+-> New record for each student should created for each course.
+-> We only put into database when they are enrolled,
+
+2. Student details - Names and ID ONLY
+-> Attributes for student : Name and ID
+-> Ara ID is a primary key
+-> names varchar(25)
+
+3. Branch needs to be considered and they need to be able to add more in future.
+
+4. Booking, we only record if they are coming morning, afternoon or evening.
+
+5. Notes- could be link to two things,
+A. notes linked to the student to provide situational awareness for Staff
+B. attached to a particular booking.
