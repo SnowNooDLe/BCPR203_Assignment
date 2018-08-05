@@ -1,3 +1,12 @@
+Deduct marks for:
+1. Attributes in wrong table.
+2. Incorrect PKs
+3. Incorrect FKs
+4. Incorrect cardinalities
+5. Incorrect Entitles
+6. Relationships not shown
+7. Not enough entities. e.g fewer than 10
+
 potential attributes from excel file.
 1. ID Number
 2. First name
@@ -6,7 +15,7 @@ potential attributes from excel file.
 5. PROG (course code)
 6. Start date
 7. End date
-8. Numbero f days attended (Number of sessions attended)
+8. Number of days attended (Number of sessions attended)
 9. number of days (Numbero f sessions in course)
 10. Withdrawal point
 11. Last Withdrawal date
