@@ -1,3 +1,18 @@
+Project Scope:
+Making database for all CFF staff to use to track and monitor 'students'
+across all eight location.
+
+Query: A query is an inquiry into the database using the SELECT statement.
+
+Five high level queries are required
+1. Students that have not been engages in the last week
+2. Students that are near the end of their course duration
+3. How many times have students attended their course
+4. Bookings for a day/time/session
+5. Students that have not attended past the last withdrawl date
+-> This means when we use SELECT 'sth' FROM 'database name', we have to get
+those five which are the attributes that must be in for this assignment.
+
 Deduct marks for:
 1. Attributes in wrong table.
 2. Incorrect PKs
