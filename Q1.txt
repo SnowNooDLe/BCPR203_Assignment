@@ -22,25 +22,37 @@ Deduct marks for:
 6. Relationships not shown
 7. Not enough entities. e.g fewer than 10
 
+Question to ask Peter via email.
+1. based on this projct's scope, we are expecting to load data from external systems in CSV or other compatible formats and we have external CSV as an example. Are you expecting to add more attributes ? or at this point, we only use whats on there ?
+-> At this point, we only use CSV file, which means every datas from given excel file shows all the attributes we need to use.
+
+Missing attributes.
+1. No of Attended - Student ? potentially
+2. Weeks left - Student ? Course ?
+3. Attended past last withdrawal date ? -> where to ?
+4. Notes - thinking either Student or Staff
+5. Completed - where to ?
+
 potential attributes from excel file.
-1. ID Number
-2. First name
-3. Last Name
-4. Course
-5. PROG (course code)
-6. Start date
-7. End date
-8. Number of days attended (Number of sessions attended)
-9. number of days (Numbero f sessions in course)
-10. Withdrawal point
-11. Last Withdrawal date
-12. Attended past last witdrawal date ?
-13. Date Last Attended
-14. Last Active Moodle
-15. Future Bookings
-16. Weeks Left
-17. completed
-18. Notes
+**** Make sure to put the attributes into right entity
+1. ID Number - Used for Student entity, Branch and Staff (Do we need one for courses ?)
+2. First name - Used for Student entity
+3. Last Name - Used for student entity
+4. Course - Used for Courses entity
+5. PROG (course code) - Not yet, but i assumed be in Student ?
+6. Start date - Used for Courses entity
+7. End date - Used for Courses entity
+8. Number of days attended (Number of sessions attended) - maybe in the Student entity ?
+9. number of days (Number of sessions in course) - maybe in the courses entity ?
+10. Withdrawal point - Used in courses entity
+11. Last Withdrawal date - Used in courses entity
+12. Attended past last witdrawal date ? - either Student or Courses entity
+13. Date Last Attended - Student ?
+14. Last Active Moodle - Used in student entity
+15. Future Bookings - 
+16. Weeks Left - Used in Courses entity
+17. completed - 
+18. Notes - 
 
 We have been shown the possibility of using RFID tags to allow students to
 "attend"
