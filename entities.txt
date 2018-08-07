@@ -1,0 +1,11 @@
+So entity is a thing, noun ?
+and a relationships, to see how entities relate to one another, or relationship.
+Relationships can be thought of as verbs that link two or more nouns.
+
+Nouns I can see
+1. Students
+2. Course
+3. Booking
+4. Branch
+5. Session
+6. Staff
