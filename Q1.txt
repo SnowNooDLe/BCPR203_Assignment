@@ -10,7 +10,7 @@ Five high level queries are required
 3. How many times have students attended their course
 4. Bookings for a day/time/session
 5. Students that have not attended past the last withdrawl date
--> This means when we use SELECT 'sth' FROM 'database name', we have to get
+-> This means when we use SELECT 'sth' FROM 'table name', we have to get
 those five which are the attributes that must be in for this assignment.
 
 Deduct marks for:
@@ -41,7 +41,7 @@ potential attributes from excel file.
 2. First name - Used for Student, Staff entity
 3. Last Name - Used for student, Staff entity
 4. Course - Used for Course entity
-5. PROG (course code) - Used for Program entity
+5. PROG - Used for Program entity
 6. Start date - Used for Course entity
 7. End date - Used for Course entity
 8. Number of days attended (Number of sessions attended) - Used in Attandance entity
