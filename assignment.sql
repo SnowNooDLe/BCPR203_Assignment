@@ -27,6 +27,14 @@ create table Branch(
 branchName ENUM('City', 'Bishopdale', 'Hornby', 'New Brighton', 'Rangiora', 'Timaru', 'Oamaru') primary key
 )engine = InnoDB;
 
+-- testing for Branch.
+insert into Branch values ('City');
+insert into Branch values ('Bishopdale');
+insert into Branch values ('Hornby');
+
+
+
+
 create table Student(
 studentID char(4) primary key,
 firstName varchar(25),
@@ -40,6 +48,10 @@ insert into Student Values ('0004', 'Kim', 'Son');
 insert into Student Values ('0005', 'Test', 'Test2');
 insert into Student Values ('0006', 'Test1', 'Test3');
 
+SELECT studentID FROM Student;
+
+
+
 create table Staff(
 staffNum char(4) primary key,
 firstName varchar(25),
@@ -49,6 +61,15 @@ positions varchar(30),
 branchName ENUM('City', 'Bishopdale', 'Hornby', 'New Brighton', 'Rangiora', 'Timaru', 'Oamaru'),
 foreign key (branchName) references Branch (branchName)
 )engine = InnoDB;
+
+insert into Staff values('1234', 'Test1', 'Test2', 'This is just random', 'Manager', 'City');
+insert into Staff values('2345', 'Test11', 'Test21', 'This is just random', 'Team Leader', 'City');
+insert into Staff values('3456', 'Test12', 'Test22', 'This is just random', 'Team Leader', 'Bishopdale');
+insert into Staff values('4312', 'Test13', 'Test23', 'This is just random', 'Admin', 'Bishopdale');
+insert into Staff values('5432', 'Test14', 'Test24', 'This is just random', 'Manager', 'Hornby');
+insert into Staff values('4325', 'Test15', 'Test25', 'This is just random', 'Admin', 'Hornby');
+
+
 
 create table Sessions(
 sessionID int NOT NULL AUTO_INCREMENT primary key,
@@ -85,15 +106,17 @@ foreign key (sessionID) references Sessions (sessionID),
 foreign key (studentID) references Student (studentID)
 )engine = InnoDB;
 
-insert into AttendanceBooking values ('1', '2019-07-22 09:05:05', '2019-08-19', '1:00', '0001', 1);
+DELETE FROM AttendanceBooking where sessionID = 1;
+
+insert into AttendanceBooking values ('1', '2018-02-09 09:05:05', '2018-02-19', '1:00', '0001', 1);
 update AttendanceBooking set attendanceDateTime = NULL where attendanceId = 1;
-insert into AttendanceBooking values ('2', '2019-07-23 09:05:05', '2019-08-19', '1:00', '0001', 1);
-insert into AttendanceBooking values ('3', '2019-07-24 09:05:05', '2019-08-19', '1:00', '0001', 1);
-insert into AttendanceBooking values ('4', '2019-07-25 09:05:05', '2019-08-19', '1:00', '0001', 1);
-insert into AttendanceBooking values ('5', '2019-07-22 09:05:05', '2019-08-19', '1:00', '0002', 1);
-insert into AttendanceBooking values ('6', '2019-07-22 09:06:05', '2019-08-19', '1:00', '0003', 1);
+insert into AttendanceBooking values ('2', '2018-02-19 09:05:05', '2018-02-21', '1:00', '0001', 1);
+insert into AttendanceBooking values ('3', '2018-02-21 09:05:05', '2018-02-25', '1:00', '0001', 1);
+insert into AttendanceBooking values ('4', '2018-02-25 09:05:05', '2018-02-27', '1:00', '0001', 1);
+insert into AttendanceBooking values ('5', '2018-03-10 09:05:05', '2018-03-12', '1:00', '0002', 1);
+insert into AttendanceBooking values ('6', '2018-03-03 09:06:05', '2018-03-05', '1:00', '0003', 1);
 update AttendanceBooking set attendanceDateTime = NULL where attendanceId = 6;
-insert into AttendanceBooking values ('7', '2019-07-22 09:07:05', '2019-08-19', '1:00', '0004', 1);
+insert into AttendanceBooking values ('7', '2018-07-22 09:07:05', '2019-08-19', '1:00', '0004', 1);
 insert into AttendanceBooking values ('9', null, '2019-08-19', '1:00', '0005', 1);
 insert into AttendanceBooking values ('10', null, '2019-08-19', '1:00', '0005', 1);
 insert into AttendanceBooking values ('11', null, '2019-08-19', '1:00', '0005', 1);
@@ -129,6 +152,8 @@ fields terminated by ','
 lines terminated by '\n'
 (attendanceID, attendanceDateTime, bookingDate, bookingTime,
   studentID, sessionID);
+  
+  
 
 create table AttendanceStaffBridge(
 attendanceID int,
@@ -138,6 +163,9 @@ foreign key (attendanceID) references AttendanceBooking (attendanceID),
 foreign key (staffNum) references Staff (staffNum)
 )engine = InnoDB;
 
+
+
+
 create table enrolment(
 enrolmentKey int NOT NULL AUTO_INCREMENT Primary Key,
 startDate date,
@@ -146,6 +174,60 @@ courseCode char(7),
 foreign key (studentID) references Student (studentID),
 foreign key (courseCode) references Course (courseCode)
 )engine = InnoDB;
+
+insert into enrolment values (1, '2018-02-08', '0001', 'CFCB110');
+insert into enrolment values (2, '2018-03-08', '0002', 'CFCB110');
+insert into enrolment values (3, '2018-03-02', '0003', 'CFCF106');
+insert into enrolment values (4, '2018-03-05', '0004', 'CFCS206');
+insert into enrolment values (5, '2018-04-05', '0005', 'CFDB110');
+insert into enrolment values (6, '2018-05-05', '0006', 'CFDB306');
+
+SELECT course.courseCode, course.numOfSessions, course.program, sessions.sessionDate, sessions.sessionTime
+FROM course
+INNER JOIN Sessions ON course.courseCode=Sessions.courseCode;
+
+SELECT studentID, firstName from Student;
+SELECT attendanceDateTime from attendanceBooking;
+SELECT startDate FROM Enrolment;
+
+
+-- Finding each student's start date and attendance date. working one
+SELECT 
+   Student.studentID, 
+   Student.firstName, 
+   AttendanceBooking.attendanceDateTime, 
+   enrolment.startDate
+FROM Student
+INNER JOIN attendanceBooking ON Student.studentID = attendanceBooking.studentID
+INNER JOIN Enrolment ON attendanceBooking.studentID = Enrolment.studentID
+WHERE Student.studentID BETWEEN '0001' AND '9999';
+
+-- testing just for attendent one
+-- checking students attendance in a certain period
+SELECT 
+   Student.studentID, 
+   Student.firstName, 
+   (!ISNULL(AttendanceBooking.attendanceDateTime)) as Attendance, 
+   enrolment.startDate
+FROM Student
+INNER JOIN attendanceBooking ON Student.studentID = attendanceBooking.studentID
+INNER JOIN Enrolment ON attendanceBooking.studentID = Enrolment.studentID
+WHERE (Student.studentID BETWEEN '0001' AND '9999') AND (enrolment.startDate between '2018-02-08' and '2018-03-09');
+
+-- testing for reduce duplication.
+SELECT COUNT(*)
+FROM(
+SELECT 
+   Student.studentID, 
+   Student.firstName, 
+   (!ISNULL(AttendanceBooking.attendanceDateTime)) as Attendance, 
+   enrolment.startDate
+FROM Student
+INNER JOIN attendanceBooking ON Student.studentID = attendanceBooking.studentID
+INNER JOIN Enrolment ON attendanceBooking.studentID = Enrolment.studentID
+WHERE (Student.studentID BETWEEN '0001' AND '9999') AND (enrolment.startDate between '2018-02-08' and '2018-03-09')
+) GROUP BY attendanceBooking.attendanceDateTime
+HAVING COUNT(attendanceBooking.attendanceDateTime) > 1;
 
 
 -- Do i really need this table ?
