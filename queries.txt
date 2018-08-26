@@ -1,0 +1,25 @@
+Design will not have any calculated field.
+
+Never put calculated field as an attribute.
+
+Deliverables and Query Generation
+
+1. Students that have not been engaged in the last week (other time period):
+we will need
+student first name, last name, course, number of days not attended, exact date they didnt attend, active on moodle.
+assumption: 1 session per day for each course and minimum 2 per week required to attend.
+-> other time period ( number of weeks * 2)
+
+Ask Peter for non-engagement whether its for both number of days not attended and active on moodle or either of them.
+
+
+generating data from
+https://www.generatedata.com/
+
+2. number of sessions attended / total number of sessions.
+
+3. number of sessions attended
+
+4.boking date & time from attendanceBooking table.
+
+5.
