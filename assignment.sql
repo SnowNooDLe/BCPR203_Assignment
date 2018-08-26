@@ -1,5 +1,5 @@
 -- Make sure run this if you change PC
--- drop database BCPR203;
+drop database if exists BCPR203 ;
 
 create database BCPR203;
 
@@ -26,9 +26,7 @@ lastName varchar(25)
 create table Sessions(
 sessionID int NOT NULL AUTO_INCREMENT primary key,
 sessionDate date,
-sessionTime ENUM('Morning', 'Afternoon', 'Evening'),
-courseCode char(7),
-foreign key (courseCode) references Course (courseCode)
+sessionTime ENUM('Morning', 'Afternoon', 'Evening')
 )engine = InnoDB;
 
 create table AttendanceBooking(
@@ -57,9 +55,9 @@ foreign key (courseCode) references Course (courseCode)
 )engine = InnoDB;
 
 create table SessionsBranchBridge(
-branchName ENUM('City', 'Bishopdale', 'Hornby', 'New Brighton', 'Rangiora', 'Timaru', 'Oamaru'),
 sessionID int,
-primary key (branchName, sessionID),
-foreign key (branchName) references Branch (branchName),
-foreign key (sessionID) references Sessions (sessionID)
+branchName ENUM('City', 'Bishopdale', 'Hornby', 'New Brighton', 'Rangiora', 'Timaru', 'Oamaru'),
+primary key (sessionID, branchName),
+foreign key (sessionID) references Sessions (sessionID),
+foreign key (branchName) references Branch (branchName)
 )engine = InnoDB;
